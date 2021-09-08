@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="15" height="9" viewBox="0 0 15 9">
+  <g>
+    <g opacity=".5">
+      <path fill="none" stroke="#fff" stroke-miterlimit="50" d="M5 1v0L1 4.5v0L5 8v0"/>
+    </g>
+    <g opacity=".5">
+      <path fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="50" d="M1.18 4.5h12.64"/>
+    </g>
+  </g>
+</svg>
