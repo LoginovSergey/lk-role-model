@@ -68,6 +68,15 @@
   position: relative;
 }
 
+#btn:disabled {
+  color: gray;
+  border: 1px solid gray;
+}
+
+#btn:disabled:hover {
+  cursor: auto;
+}
+
 input[type="password"] {
   font-family: "fontello";
   font-style: normal;

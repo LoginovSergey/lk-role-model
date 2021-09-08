@@ -1,14 +1,26 @@
 <app-auth-layout>
 
   <div class="wrapper_mainBlock_inputs">
-    <input type="text" placeholder="Номер телефона" id="first_input">
-    <input type="password" placeholder="Пароль" id="second_input">
+    <div [formGroup]="form">
+      <input type="tel"
+             placeholder="Номер телефона"
+             id="first_input"
+             formControlName="phone"
+             [mask]="'0 (000) 000-00-00'">
+    </div>
+    <div [formGroup]="form">
+      <input type="password"
+             placeholder="Пароль"
+             id="second_input"
+             formControlName="password"
+             [maxLength]="10">
+    </div>
   </div>
   <div class="wrapper_mainBlock_text">
-    <a id="forgot_pass" [routerLink]="'/auth/forgot-password'">Забыл пароль</a>
+    <a id="forgot_pass" [routerLink]="'/auth/forgot-password'">Забыли пароль</a>
   </div>
   <div class="wrapper_btn">
-    <button id="btn">Войти</button>
+    <button id="btn" [disabled]="form.invalid" (click)="login()">Войти</button>
   </div>
 
 </app-auth-layout>
