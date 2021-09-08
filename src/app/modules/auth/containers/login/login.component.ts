@@ -1,16 +1,25 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import {FormControl, FormGroup, Validators} from '@angular/forms';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.component.html',
   styleUrls: ['./login.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class LoginComponent implements OnInit {
+export class LoginComponent {
 
-  constructor() { }
+  form: FormGroup = new FormGroup({
+    phone: new FormControl('', []),
+    password: new FormControl('', [Validators.minLength(5), Validators.maxLength(15)]),
+  })
 
-  ngOnInit(): void {
+  constructor(private router: Router) { }
+
+  login(): void {
+    this.router.navigate(['/cabinet'])
   }
 
 }
