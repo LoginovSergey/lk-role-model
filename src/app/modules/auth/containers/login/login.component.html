@@ -1,1 +1,14 @@
-<app-auth-layout></app-auth-layout>
+<app-auth-layout>
+
+  <div class="wrapper_mainBlock_inputs">
+    <input type="text" placeholder="Номер телефона" id="first_input">
+    <input type="password" placeholder="Пароль" id="second_input">
+  </div>
+  <div class="wrapper_mainBlock_text">
+    <a id="forgot_pass" [routerLink]="'/auth/forgot-password'">Забыл пароль</a>
+  </div>
+  <div class="wrapper_btn">
+    <button id="btn">Войти</button>
+  </div>
+
+</app-auth-layout>

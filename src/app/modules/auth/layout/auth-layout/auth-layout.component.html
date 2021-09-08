@@ -1,59 +1,11 @@
 <section class="wrapper">
   <div class="wrapper_mainBlock">
     <a class="wrapper_mainBlock_return">
-      <svg id="logo_svg" xmlns="http://www.w3.org/2000/svg" width="15" height="9" viewBox="0 0 15 9">
-        <g>
-          <g opacity=".5">
-            <path fill="none" stroke="#fff" stroke-miterlimit="50" d="M5 1v0L1 4.5v0L5 8v0"/>
-          </g>
-          <g opacity=".5">
-            <path fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="50" d="M1.18 4.5h12.64"/>
-          </g>
-        </g>
-      </svg>
+      <img src="assets/img/arrow_left.svg" alt="logo">
       Вернуться</a>
     <div class="wrapper_mainBlock_logo">
       <img src="assets/img/logo.png" alt="Logo">
     </div>
-    <div class="wrapper_mainBlock_inputs">
-      <div id="wrapper_first_input">
-        <form action="#">
-          <input type="text" placeholder="Номер телефона" id="first_input">
-        </form>
-        <div id="wrong">
-          <p>!</p>
-        </div>
-        <div>
-          <svg id="ok_svg" xmlns="http://www.w3.org/2000/svg" width="18" height="17" viewBox="0 0 18 17">
-            <g>
-              <g>
-                <path fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="50" d="M.5 9.5l6.67 6.67"/>
-              </g>
-              <g>
-                <path fill="none" stroke="#fff" stroke-linecap="square" stroke-miterlimit="50" d="M17.5.5L7.17 16.17"/>
-              </g>
-            </g>
-          </svg>
-        </div>
-      </div>
-      <form action="#">
-        <input type="password" placeholder="Пароль" id="second_input">
-      </form>
-    </div>
-    <div class="wrapper_mainBlock_text">
-      <form action="#">
-        <label class="ios7-switch">
-          <input type="checkbox">
-          <span></span>
-        </label>
-        <p id="remember_text">Запомнить</p>
-      </form>
-      <a href="#" id="forgot_pass">Забыл пароль</a>
-    </div>
-    <div class="wrapper_btn">
-      <form action="#">
-        <button id="btn" disabled type="submit">Войти</button>
-      </form>
-    </div>
+    <ng-content></ng-content>
   </div>
 </section>
