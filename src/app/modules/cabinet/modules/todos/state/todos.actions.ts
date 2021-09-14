@@ -1,10 +1,8 @@
-import { Todo } from '../../models/todos-list.model';
+import { Todo } from '../models/todos-list.model';
 
 export class AddTodo {
   static readonly type = '[Todo] Add';
-
-  constructor(public payload: Todo) {
-  }
+  constructor(public payload: Todo) { }
 }
 
 export class GetTodos {
@@ -13,21 +11,15 @@ export class GetTodos {
 
 export class UpdateTodo {
   static readonly type = '[Todo] Update';
-
-  constructor(public payload: Todo, public id: number) {
-  }
+  constructor(public payload: Todo, public id: number) { }
 }
 
 export class DeleteTodo {
   static readonly type = '[Todo] Delete';
-
-  constructor(public id: number) {
-  }
+  constructor(public id: number) { }
 }
 
 export class SetSelectedTodo {
   static readonly type = '[Todo] Set';
-
-  constructor(public payload: Todo | null) {
-  }
+  constructor(public payload: Todo) { }
 }

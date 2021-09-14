@@ -1,9 +1,9 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { TodoState } from '../../state/state/todos.state';
+import { TodoState } from '../../state/todos.state';
 import { Observable } from 'rxjs';
 import { Todo } from '../../models/todos-list.model';
 import { Select, Store } from '@ngxs/store';
-import { DeleteTodo, GetTodos, SetSelectedTodo } from '../../state/actions/todos.actions';
+import { DeleteTodo, GetTodos, SetSelectedTodo } from '../../state/todos.actions';
 
 @Component({
   selector: 'app-todos-list',
@@ -17,15 +17,16 @@ export class TodosListComponent implements OnInit {
 
   constructor(private store: Store) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
     this.store.dispatch(new GetTodos());
   }
 
-  deleteTodo(id: number): void {
+  deleteTodo(id: number) {
     this.store.dispatch(new DeleteTodo(id));
   }
 
-  editTodo(payload: Todo): void {
+  editTodo(payload: Todo) {
     this.store.dispatch(new SetSelectedTodo(payload));
   }
+
 }

@@ -18,6 +18,9 @@ import { TodosFormComponent } from './components/todos-form/todos-form.component
     TodosRoutingModule,
     ReactiveFormsModule,
   ],
+  bootstrap: [
+    TodosComponent,
+  ],
 })
 
 export class TodosModule {

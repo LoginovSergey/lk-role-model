@@ -6,7 +6,7 @@ import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
 import { environment } from '../../environments/environment';
-import { TodoState } from '../modules/cabinet/modules/todos/state/state/todos.state';
+import { TodoState } from '../modules/cabinet/modules/todos/state/todos.state';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
   return {
@@ -21,10 +21,8 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
     NgxMaskModule.forRoot(maskConfigFunction),
     NgxsModule.forRoot([
       TodoState,
-    ], {
-      developmentMode: !environment.production,
-    }),
-    NgxsModule.forRoot([]), NgxsReduxDevtoolsPluginModule.forRoot(),
+    ]),
+    NgxsReduxDevtoolsPluginModule.forRoot(),
     NgxsLoggerPluginModule.forRoot(),
   ],
 })
