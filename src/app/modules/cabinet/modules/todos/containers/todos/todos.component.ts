@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { DeleteTodo, GetTodos, SetSelectedTodo } from '../../state/todos.actions';
-import { Todo } from '../../models/todo.model';
 import { Select, Store } from '@ngxs/store';
-import { TodoState } from '../../state/todos.state';
 import { Observable } from 'rxjs';
+
+import { DeleteTodo, GetTodos, SetSelectedTodo } from '../../state/todos.actions';
+import { TodoState } from '../../state/todos.state';
+
+import { Todo } from '../../models/todo.model';
 
 @Component({
   selector: 'app-todos',

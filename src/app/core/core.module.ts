@@ -5,7 +5,6 @@ import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
 import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
 
-import { environment } from '../../environments/environment';
 import { TodoState } from '../modules/cabinet/modules/todos/state/todos.state';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {

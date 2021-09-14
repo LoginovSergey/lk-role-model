@@ -1,9 +1,11 @@
 import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { TodoState } from '../../state/todos.state';
+import { Select, Store } from '@ngxs/store';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Observable } from 'rxjs';
-import { Select, Store } from '@ngxs/store';
+
+import { TodoState } from '../../state/todos.state';
 import { AddTodo } from '../../state/todos.actions';
+
 import { Todo } from '../../models/todo.model';
 
 @Component({

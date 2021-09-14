@@ -1,9 +1,11 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
-import { tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { Todo } from '../models/todo.model';
+import { tap } from 'rxjs/operators';
+
 import { TodosService } from '../services/todos.service';
 import { AddTodo, DeleteTodo, GetTodos, SetSelectedTodo, UpdateTodo } from './todos.actions';
+
+import { Todo } from '../models/todo.model';
 
 export class TodoStateModel {
   todos!: Todo[];
@@ -21,8 +23,7 @@ export class TodoStateModel {
 @Injectable()
 export class TodoState {
 
-  constructor(private todoService: TodosService) {
-  }
+  constructor(private todoService: TodosService) { }
 
   @Selector()
   static getTodoList(state: TodoStateModel): any {
@@ -90,5 +91,6 @@ export class TodoState {
       selectedTodo: payload,
     });
   }
+
 }
 
