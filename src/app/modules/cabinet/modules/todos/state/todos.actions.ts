@@ -1,4 +1,4 @@
-import { Todo } from '../models/todos-list.model';
+import { Todo } from '../models/todo.model';
 
 export class AddTodo {
   static readonly type = '[Todo] Add';
@@ -21,5 +21,5 @@ export class DeleteTodo {
 
 export class SetSelectedTodo {
   static readonly type = '[Todo] Set';
-  constructor(public payload: Todo) { }
+  constructor(public payload: Todo | null) { }
 }

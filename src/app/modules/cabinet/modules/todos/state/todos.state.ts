@@ -1,7 +1,7 @@
 import { State, Action, StateContext, Selector } from '@ngxs/store';
 import { tap } from 'rxjs/operators';
 import { Injectable } from '@angular/core';
-import { Todo } from '../models/todos-list.model';
+import { Todo } from '../models/todo.model';
 import { TodosService } from '../services/todos.service';
 import { AddTodo, DeleteTodo, GetTodos, SetSelectedTodo, UpdateTodo } from './todos.actions';
 

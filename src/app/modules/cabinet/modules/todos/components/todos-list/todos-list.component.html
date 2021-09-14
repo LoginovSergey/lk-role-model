@@ -1,5 +1,5 @@
 <div class="col">
-  <div *ngIf="todos">
+  <div *ngIf="todo">
     <table class="table table-striped">
       <thead>
       <tr>
@@ -10,7 +10,7 @@
       </tr>
       </thead>
       <tbody>
-      <tr *ngFor="let todo of todos | async">
+      <tr *ngFor="let todo of todo">
         <td>{{ todo.id }}</td>
         <td>{{ todo.title }}</td>
         <td>

@@ -12,7 +12,7 @@ const routes: Routes = [
   {
     path: 'cabinet',
     loadChildren: () => import('./modules/cabinet/cabinet.module').then(m => m.CabinetModule),
-    // canLoad: [AuthGuard],
+    canLoad: [AuthGuard],
   },
   {
     path: '**',

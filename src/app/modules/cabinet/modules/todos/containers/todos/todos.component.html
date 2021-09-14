@@ -4,7 +4,12 @@
       <app-todos-form></app-todos-form>
     </div>
     <div class="col-6">
-      <app-todos-list></app-todos-list>
+      <ng-container *ngIf="todos">
+        <app-todos-list [todo]="todos | async"
+                        (onEditTodo)="editTodo($event)"
+                        (onDeleteTodo)="deleteTodo($event)">
+        </app-todos-list>
+      </ng-container>
     </div>
   </div>
 </div>

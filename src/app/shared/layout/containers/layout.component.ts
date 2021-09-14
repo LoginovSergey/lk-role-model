@@ -1,15 +1,22 @@
-import { Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../../modules/auth/services/auth.service';
 
 @Component({
   selector: 'app-layout',
   templateUrl: './layout.component.html',
-  styleUrls: ['./layout.component.scss']
+  styleUrls: ['./layout.component.scss'],
+  changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class LayoutComponent implements OnInit {
 
-  constructor() { }
+export class LayoutComponent {
 
-  ngOnInit(): void {
+  constructor(private authService: AuthService,
+              private router: Router) { }
+
+  logout(): void {
+    this.authService.logout();
   }
 
 }

@@ -1,9 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
-import { TodoState } from '../../state/todos.state';
-import { Observable } from 'rxjs';
-import { Todo } from '../../models/todos-list.model';
-import { Select, Store } from '@ngxs/store';
-import { DeleteTodo, GetTodos, SetSelectedTodo } from '../../state/todos.actions';
+import { ChangeDetectionStrategy, Component, EventEmitter, Input, Output } from '@angular/core';
+
+import { Todo } from '../../models/todo.model';
 
 @Component({
   selector: 'app-todos-list',
@@ -12,21 +9,17 @@ import { DeleteTodo, GetTodos, SetSelectedTodo } from '../../state/todos.actions
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
 
-export class TodosListComponent implements OnInit {
-  @Select(TodoState.getTodoList) todos!: Observable<Todo[]>;
+export class TodosListComponent {
+  @Input() todo!: Todo[] | null;
 
-  constructor(private store: Store) { }
+  @Output() onEditTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
+  @Output() onDeleteTodo: EventEmitter<number> = new EventEmitter<number>();
 
-  ngOnInit() {
-    this.store.dispatch(new GetTodos());
+  editTodo(todo: Todo): void {
+    this.onEditTodo.emit(todo);
   }
 
-  deleteTodo(id: number) {
-    this.store.dispatch(new DeleteTodo(id));
+  deleteTodo(id: number): void {
+    this.onDeleteTodo.emit(id);
   }
-
-  editTodo(payload: Todo) {
-    this.store.dispatch(new SetSelectedTodo(payload));
-  }
-
 }

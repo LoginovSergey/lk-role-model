@@ -1,9 +1,11 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
 
+import { AdminComponent } from './containers/admin/admin.component';
+
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'admin' },
-  { path: 'admin', pathMatch: 'full' },
+  { path: 'users-list', pathMatch: 'full', component: AdminComponent },
 ];
 
 @NgModule({
