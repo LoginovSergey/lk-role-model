@@ -1,4 +1,4 @@
-export interface TodosListModel {
+export interface Todo {
   userId: number,
   id: number,
   title: string,

@@ -1,6 +1,6 @@
-import { ChangeDetectionStrategy, Component, OnInit } from '@angular/core';
+import { ChangeDetectionStrategy, Component } from '@angular/core';
 import { Router } from '@angular/router';
-import {FormControl, FormGroup, Validators} from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-login',
@@ -19,8 +19,7 @@ export class LoginComponent {
   constructor(private router: Router) { }
 
   login(): void {
-    console.log(this.form.value)
-    // this.router.navigate(['/cabinet'])
+    this.router.navigate(['/cabinet/todos'])
   }
 
 }

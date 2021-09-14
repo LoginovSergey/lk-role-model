@@ -40,3 +40,7 @@ $candy-app-theme: mat-light-theme($candy-app-primary, $candy-app-accent, $candy-
   font-family: Helvetica Neue;
   src: url('~src/assets/fonts/HelveticaNeue.ttf')
 }
+
+// Start bootstrap
+@import '~bootstrap/dist/css/bootstrap.min.css';
+// End bootstrap
