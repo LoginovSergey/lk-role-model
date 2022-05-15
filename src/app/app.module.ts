@@ -13,8 +13,9 @@ import { CoreModule } from './core/core.module';
 
 import { CustomDateAdapter } from './shared/classes/custom-date-adapter';
 import { AppComponent } from './app.component';
-
+import { AuthGuard } from './modules/auth/providers/auth.guard';
 registerLocaleData(localeRu, 'ru');
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -39,6 +40,7 @@ registerLocaleData(localeRu, 'ru');
       provide: DateAdapter,
       useClass: CustomDateAdapter,
     },
+    AuthGuard,
   ],
   bootstrap: [AppComponent],
 })
