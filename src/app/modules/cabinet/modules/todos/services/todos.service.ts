@@ -11,22 +11,22 @@ import { Todo } from '../models/todo.model';
 })
 
 export class TodosService {
-  constructor(private http: HttpClient) { }
+  constructor(private readonly _http: HttpClient) { }
 
-  fetchTodos(): Observable<Todo[]> {
-    return this.http.get<Todo[]>(`${environment.api + '/todos'}`);
+  getTodos(): Observable<Todo[]> {
+    return this._http.get<Todo[]>(`${environment.api + '/todos'}`);
   }
 
   deleteTodo(id: number): any {
-    return this.http.delete(`${environment.api + '/todos/' + id}`);
+    return this._http.delete(`${environment.api + '/todos/' + id}`);
   }
 
   addTodo(payload: Todo): Observable<Todo> {
-    return this.http.post<Todo>(`${environment.api + '/todos'}`, payload);
+    return this._http.post<Todo>(`${environment.api + '/todos'}`, payload);
   }
 
   updateTodo(payload: Todo, id: number): Observable<Todo> {
-    return this.http.put<Todo>(`${environment.api + '/todos/' + id}`, payload);
+    return this._http.put<Todo>(`${environment.api + '/todos/' + id}`, payload);
   }
 
 }

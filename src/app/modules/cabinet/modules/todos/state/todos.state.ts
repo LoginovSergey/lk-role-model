@@ -7,9 +7,9 @@ import { AddTodo, DeleteTodo, GetTodos, SetSelectedTodo, UpdateTodo } from './to
 
 import { Todo } from '../models/todo.model';
 
-export class TodoStateModel {
-  todos!: Todo[];
-  selectedTodo!: Todo | null;
+export interface TodoStateModel {
+  todos: Todo[];
+  selectedTodo: Todo | null;
 }
 
 @State<TodoStateModel>({
@@ -37,17 +37,20 @@ export class TodoState {
 
   @Action(GetTodos)
   getTodos(ctx: StateContext<TodoStateModel>): any {
-    return this.todoService.fetchTodos().pipe(tap(result => {
-      const state = ctx.getState();
-      ctx.setState({
-        ...state,
-        todos: result,
-      });
-    }));
+    return this.todoService.getTodos()
+      .pipe(
+        tap(result => {
+          const state = ctx.getState();
+          ctx.setState({
+            ...state,
+            todos: result,
+          });
+        })
+      );
   }
 
   @Action(AddTodo)
-  addTodo(ctx: StateContext<TodoStateModel>, { payload}: AddTodo): any {
+  addTodo(ctx: StateContext<TodoStateModel>, { payload }: AddTodo): any {
     return this.todoService.addTodo(payload).pipe(tap(result => {
       const state = ctx.getState();
       ctx.patchState({
@@ -57,34 +60,40 @@ export class TodoState {
   }
 
   @Action(UpdateTodo)
-  updateTodo(ctx: StateContext<TodoStateModel>, { payload, id}: UpdateTodo): any {
-    return this.todoService.updateTodo(payload, id).pipe(tap(result => {
-      const state = ctx.getState();
-      const todoList = [...state.todos];
-      const todoIndex = todoList.findIndex(item => item.id === id);
-      todoList[todoIndex] = result;
-      ctx.setState({
-        ...state,
-        todos: todoList,
-      });
-    }));
+  updateTodo(ctx: StateContext<TodoStateModel>, { payload, id }: UpdateTodo): any {
+    return this.todoService.updateTodo(payload, id)
+      .pipe(
+        tap(result => {
+          const state = ctx.getState();
+          const todoList = [...state.todos];
+          const todoIndex = todoList.findIndex(item => item.id === id);
+          todoList[todoIndex] = result;
+          ctx.setState({
+            ...state,
+            todos: todoList,
+          });
+        })
+      );
   }
 
 
   @Action(DeleteTodo)
-  deleteTodo(ctx: StateContext<TodoStateModel>, { id}: DeleteTodo): any {
-    return this.todoService.deleteTodo(id).pipe(tap(() => {
-      const state = ctx.getState();
-      const filteredArray = state.todos.filter(item => item.id !== id);
-      ctx.setState({
-        ...state,
-        todos: filteredArray,
-      });
-    }));
+  deleteTodo(ctx: StateContext<TodoStateModel>, { id }: DeleteTodo): any {
+    return this.todoService.deleteTodo(id)
+      .pipe(
+        tap(() => {
+          const state = ctx.getState();
+          const filteredArray = state.todos.filter(item => item.id !== id);
+          ctx.setState({
+            ...state,
+            todos: filteredArray,
+          });
+        })
+      );
   }
 
   @Action(SetSelectedTodo)
-  setSelectedTodoId(ctx: StateContext<TodoStateModel>, { payload}: SetSelectedTodo): any {
+  setSelectedTodoId(ctx: StateContext<TodoStateModel>, { payload }: SetSelectedTodo): any {
     const state = ctx.getState();
     ctx.setState({
       ...state,
