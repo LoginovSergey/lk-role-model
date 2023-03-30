@@ -4,8 +4,8 @@ import { NgModule } from '@angular/core';
 import { NotFoundErrorComponent } from './containers/not-found-error/not-found-error.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', redirectTo: 'error404' },
-  { path: 'error404', pathMatch: 'full', component: NotFoundErrorComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'notFound' },
+  { path: 'notFound', pathMatch: 'full', component: NotFoundErrorComponent },
 ];
 
 @NgModule({
