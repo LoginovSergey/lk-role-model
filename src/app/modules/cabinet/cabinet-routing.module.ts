@@ -8,8 +8,16 @@ import { CabinetAdminGuard } from './providers/cabinet-admin.guard';
 import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
-  { path: '', resolve: { cabinet: CabinetResolver } },
-  { path: '', component: LayoutComponent, children: [
+  {
+    path: '',
+    resolve: {
+      cabinet: CabinetResolver,
+    },
+  },
+  {
+    path: '',
+    component: LayoutComponent,
+    children: [
       {
         path: 'todos',
         loadChildren: () => import('./modules/todos/todos.module').then(m => m.TodosModule),

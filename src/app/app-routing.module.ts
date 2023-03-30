@@ -1,6 +1,5 @@
 import { RouterModule, Routes } from '@angular/router';
 import { inject, NgModule } from '@angular/core';
-
 import { AuthGuard } from './modules/auth/providers/auth.guard';
 import { AuthService } from './modules/auth/services/auth.service';
 
@@ -17,7 +16,7 @@ const routes: Routes = [
   },
   {
     path: '**',
-    loadChildren: () => import('./modules/error/error.module').then( m => m.ErrorModule),
+    loadChildren: () => import('./modules/error/error.module').then(m => m.ErrorModule),
   },
 ];
 
