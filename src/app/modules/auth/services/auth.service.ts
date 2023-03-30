@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscriber } from 'rxjs';
 import { Router } from '@angular/router';
 
 import { LoginFormModel } from '../models/login-form.model';
@@ -23,7 +23,7 @@ export class AuthService {
   login(form: LoginFormModel): Observable<string> {
     let arrOfRoles = ['admin', 'user'];
     let randomRole = arrOfRoles[(Math.floor(Math.random() * arrOfRoles.length))];
-    return new Observable<string>(observer => {
+    return new Observable<string>((observer: Subscriber<string>) => {
       observer.next(randomRole);
       observer.complete();
     })

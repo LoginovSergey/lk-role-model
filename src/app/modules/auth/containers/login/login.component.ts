@@ -25,7 +25,7 @@ export class LoginComponent implements OnDestroy {
 
   constructor(
     private service: AuthService,
-    private router: Router
+    private _router: Router
   ) { }
 
   login(formValue: LoginFormModel): void {
@@ -34,11 +34,11 @@ export class LoginComponent implements OnDestroy {
       .pipe(
         takeUntil(this.destroy$)
       )
-      .subscribe(res => {
+      .subscribe((res: string) => {
       this.form.enable();
       sessionStorage.setItem('lk-role-model', 'authenticated-token');
       sessionStorage.setItem('lk-role-model__role', res);
-      this.router.navigate(['/cabinet']);
+      this._router.navigate(['/cabinet']);
     })
   }
 

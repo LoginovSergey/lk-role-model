@@ -8,10 +8,18 @@ import { CabinetAdminGuard } from './providers/cabinet-admin.guard';
 import { LayoutComponent } from './layout/layout.component';
 
 const routes: Routes = [
-  { path: '', resolve: [CabinetResolver] },
+  { path: '', resolve: { cabinet: CabinetResolver } },
   { path: '', component: LayoutComponent, children: [
-      { path: 'todos', loadChildren: () => import('./modules/todos/todos.module').then(m => m.TodosModule), canLoad: [CabinetTodosGuard] },
-      { path: 'admin', loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule), canLoad: [CabinetAdminGuard] },
+      {
+        path: 'todos',
+        loadChildren: () => import('./modules/todos/todos.module').then(m => m.TodosModule),
+        canLoad: [CabinetTodosGuard],
+      },
+      {
+        path: 'admin',
+        loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
+        canLoad: [CabinetAdminGuard],
+      },
     ],
   },
 ];

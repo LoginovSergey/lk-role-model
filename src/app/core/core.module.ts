@@ -3,8 +3,6 @@ import { CommonModule } from '@angular/common';
 import { IConfig, NgxMaskModule } from 'ngx-mask';
 import { NgxsModule } from '@ngxs/store';
 import { NgxsReduxDevtoolsPluginModule } from '@ngxs/devtools-plugin';
-import { NgxsLoggerPluginModule } from '@ngxs/logger-plugin';
-
 import { TodoState } from '../modules/cabinet/modules/todos/state/todos.state';
 
 const maskConfigFunction: () => Partial<IConfig> = () => {
@@ -22,7 +20,6 @@ const maskConfigFunction: () => Partial<IConfig> = () => {
       TodoState,
     ]),
     NgxsReduxDevtoolsPluginModule.forRoot(),
-    NgxsLoggerPluginModule.forRoot(),
   ],
 })
 

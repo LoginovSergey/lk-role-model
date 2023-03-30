@@ -1,7 +1,8 @@
 import { RouterModule, Routes } from '@angular/router';
-import { NgModule } from '@angular/core';
+import { inject, NgModule } from '@angular/core';
 
 import { AuthGuard } from './modules/auth/providers/auth.guard';
+import { AuthService } from './modules/auth/services/auth.service';
 
 const routes: Routes = [
   { path: '', pathMatch: 'full', redirectTo: 'cabinet' },
@@ -12,7 +13,7 @@ const routes: Routes = [
   {
     path: 'cabinet',
     loadChildren: () => import('./modules/cabinet/cabinet.module').then(m => m.CabinetModule),
-    canLoad: [AuthGuard],
+    canLoad: [() => inject(AuthService).isAuthenticated],
   },
   {
     path: '**',
@@ -21,7 +22,6 @@ const routes: Routes = [
 ];
 
 @NgModule({
-  declarations: [ ],
   imports: [
     RouterModule.forRoot(routes),
   ],
