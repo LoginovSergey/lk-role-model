@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { CabinetResolver } from './cabinet.resolver';
+import { CabinetResolver } from './role-guard.can-activate.guard';
 
 describe('CabinetResolver', () => {
   let resolver: CabinetResolver;

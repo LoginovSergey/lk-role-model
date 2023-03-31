@@ -4,7 +4,8 @@ import { NgModule } from '@angular/core';
 import { TodosComponent } from './containers/todos/todos.component';
 
 const routes: Routes = [
-  { path: '', pathMatch: 'full', component: TodosComponent },
+  { path: '', pathMatch: 'full', redirectTo: 'list' },
+  { path: 'list', component: TodosComponent },
 ];
 
 @NgModule({

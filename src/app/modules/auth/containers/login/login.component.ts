@@ -38,7 +38,11 @@ export class LoginComponent implements OnDestroy {
       this.form.enable();
       sessionStorage.setItem('lk-role-model', 'authenticated-token');
       sessionStorage.setItem('lk-role-model__role', res);
-      this._router.navigate(['/cabinet']);
+      if (res === 'admin') {
+        this._router.navigate(['cabinet', 'admin']);
+      } else if (res === 'user') {
+        this._router.navigate(['cabinet', 'todos']);
+      }
     })
   }
 

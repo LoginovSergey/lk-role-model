@@ -1,7 +1,6 @@
 import { RouterModule, Routes } from '@angular/router';
-import { inject, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { AuthGuard } from './modules/auth/providers/auth.guard';
-import { AuthService } from './modules/auth/services/auth.service';
 
 const routes: Routes = [
   {
@@ -16,7 +15,8 @@ const routes: Routes = [
   {
     path: 'cabinet',
     loadChildren: () => import('./modules/cabinet/cabinet.module').then(m => m.CabinetModule),
-    canLoad: [() => inject(AuthService).isAuthenticated],
+    canActivate: [AuthGuard],
+
   },
   {
     path: '**',

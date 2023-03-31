@@ -1,17 +1,9 @@
 import { RouterModule, Routes } from '@angular/router';
 import { NgModule } from '@angular/core';
-
-import { CabinetResolver } from './providers/cabinet.resolver';
-
 import { LayoutComponent } from './layout/layout.component';
+import { RoleGuard } from './providers/role-guard.can-activate.guard';
 
 const routes: Routes = [
-  {
-    path: '',
-    resolve: {
-      cabinet: CabinetResolver,
-    },
-  },
   {
     path: '',
     component: LayoutComponent,
@@ -19,10 +11,18 @@ const routes: Routes = [
       {
         path: 'todos',
         loadChildren: () => import('./modules/todos/todos.module').then(m => m.TodosModule),
+        canActivate: [RoleGuard],
+        data: {
+          expectedRole: 'user',
+        },
       },
       {
         path: 'admin',
         loadChildren: () => import('./modules/admin/admin.module').then(m => m.AdminModule),
+        canActivate: [RoleGuard],
+        data: {
+          expectedRole: 'admin',
+        },
       },
     ],
   },

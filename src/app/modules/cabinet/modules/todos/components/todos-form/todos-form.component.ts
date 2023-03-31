@@ -16,8 +16,8 @@ import { Todo } from '../../models/todo.model';
 })
 
 export class TodosFormComponent implements OnInit {
-  @Select(TodoState.getSelectedTodo) selectedTodo!: Observable<Todo>;
-  todoForm!: FormGroup;
+  @Select(TodoState.getSelectedTodo) selectedTodo: Observable<Todo>;
+  todoForm: FormGroup;
 
   constructor(private fb: FormBuilder,
               private store: Store) {

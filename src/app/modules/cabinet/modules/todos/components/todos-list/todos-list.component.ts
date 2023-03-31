@@ -10,7 +10,7 @@ import { Todo } from '../../models/todo.model';
 })
 
 export class TodosListComponent {
-  @Input() todo!: Todo[] | null;
+  @Input() todo: Todo[] | null;
 
   @Output() onEditTodo: EventEmitter<Todo> = new EventEmitter<Todo>();
   @Output() onDeleteTodo: EventEmitter<number> = new EventEmitter<number>();

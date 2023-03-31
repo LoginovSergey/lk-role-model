@@ -15,7 +15,7 @@ import { Todo } from '../../models/todo.model';
 })
 
 export class TodosComponent implements OnInit {
-  @Select(TodoState.getTodoList) todos!: Observable<Todo[]>;
+  @Select(TodoState.getTodoList) todos: Observable<Todo[]>;
 
   constructor(private store: Store) { }
 
